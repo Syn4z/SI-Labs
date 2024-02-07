@@ -2,16 +2,17 @@
 #include <LiquidCrystal_I2C.h>
 #include <Keypad.h>
 
+#define I2C_ADDR 0x27
+#define LCD_WIDTH 12
+#define LCD_HEIGHT 6
+#define MAX_CODE_LENGTH 4
+
 const byte ROWS = 4;
 const byte COLS = 4;
 const char* desiredCode = "1234"; 
 const int greenLedPin = 11;
 const int redLedPin = 12;
 
-#define I2C_ADDR 0x27
-#define LCD_WIDTH 12
-#define LCD_HEIGHT 6
-#define MAX_CODE_LENGTH 4
 
 char keys[ROWS][COLS] = {
   {'1', '2', '3', 'A'},
@@ -19,12 +20,10 @@ char keys[ROWS][COLS] = {
   {'7', '8', '9', 'C'},
   {'*', '0', '#', 'D'}
 };
-
 byte rowPins[ROWS] = {9, 8, 7, 6};
 byte colPins[COLS] = {5, 4, 3, 2};
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
-
 LiquidCrystal_I2C lcd(I2C_ADDR, LCD_WIDTH, LCD_HEIGHT);
 
 char enteredCode[MAX_CODE_LENGTH + 1]; 
@@ -34,7 +33,6 @@ bool checkCode = false;
 void setup() {
   lcd.init();
   lcd.backlight();
-
   lcd.setCursor(0, 0);
   lcd.print("Enter code:");
 
