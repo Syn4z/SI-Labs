@@ -30,11 +30,18 @@ char enteredCode[MAX_CODE_LENGTH + 1];
 int codeIndex = 0;   
 bool checkCode = false; 
 
+void displayInitialMessage() {
+  lcd.setCursor(0, 0);
+  lcd.print("Enter code:");
+  lcd.setCursor(0, 1);
+  lcd.print("Push # to submit");
+  lcd.setCursor(12, 0);
+}
+
 void setup() {
   lcd.init();
   lcd.backlight();
-  lcd.setCursor(0, 0);
-  lcd.print("Enter code:");
+  displayInitialMessage();
 
   pinMode(greenLedPin, OUTPUT);
   pinMode(redLedPin, OUTPUT);
@@ -80,8 +87,7 @@ void loop() {
       codeIndex = 0;
       checkCode = false;
       lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("Enter code:");
+      displayInitialMessage();
     }
   }
 }
