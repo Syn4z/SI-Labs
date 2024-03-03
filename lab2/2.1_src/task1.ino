@@ -13,7 +13,7 @@ void task1Loop() {
 
     if (buttonState == HIGH && previousButtonState == LOW) {
         ledState = !ledState;
-        delay(200);
+        delay(DELAY_PERIOD);
     }
 
     digitalWrite(LED1_PORT, ledState);

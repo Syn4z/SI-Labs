@@ -12,14 +12,14 @@ void task3Loop(){
 
         if (button2State == HIGH && previousButton2State == LOW){
             incrementBlinkValue();
-            delay(200);
+            delay(DELAY_PERIOD);
         }
 
         previousButton2State = button2State;
 
         if (button3State == HIGH && previousButton3State == LOW){
             decrementBlinkValue();
-            delay(200);
+            delay(DELAY_PERIOD);
         }
 
         previousButton3State = button3State;

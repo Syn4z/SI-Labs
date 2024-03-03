@@ -3,6 +3,7 @@
 
 #define LED1_PORT 9
 #define BUTTON1_PORT 2
+#define DELAY_PERIOD 200
 
 int buttonState = 0;
 extern int ledState = LOW;

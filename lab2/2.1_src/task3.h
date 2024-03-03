@@ -3,6 +3,7 @@
 
 #define BUTTON2_PORT 3
 #define BUTTON3_PORT 4
+#define DELAY_PERIOD 200
 
 int previousButton2State = LOW; 
 int previousButton3State = LOW;
