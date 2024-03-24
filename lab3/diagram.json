@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "author": "Sorin Gamer",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": -348.6, "left": -246.8, "attrs": {} },
+      {
+        "type": "wokwi-arduino-uno",
+        "id": "uno",
+        "top": -95.4,
+        "left": -192.6,
+        "rotate": 180,
+        "attrs": {}
+      },
+      { "type": "board-ds18b20", "id": "temp1", "top": -279.53, "left": -91.92, "attrs": {} },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": -41.5,
+        "left": 42.7,
+        "rotate": 270,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": -178.15,
+        "left": -107,
+        "rotate": 180,
+        "attrs": { "value": "10000" }
+      }
+    ],
+    "connections": [
+      [ "r1:2", "bb1:16b.j", "green", [ "v-9.6", "h30" ] ],
+      [ "r1:1", "bb1:17b.j", "green", [ "v-9.6", "h-19.2" ] ],
+      [ "bb1:15b.h", "bb1:bn.9", "black", [ "v0", "h-38.4" ] ],
+      [ "bb1:17b.h", "bb1:bp.17", "red", [ "v0", "h38.4" ] ],
+      [ "bb1:bp.1", "uno:5V", "red", [ "v-0.9", "h-27.2", "v48", "h163.2" ] ],
+      [ "bb1:bn.1", "uno:GND.3", "black", [ "v27.5", "h116.8" ] ],
+      [ "bb1:16b.h", "uno:2", "orange", [ "v-9.6", "h-153.6", "v336", "h75.3" ] ],
+      [ "ldr1:AO", "uno:A0", "blue", [ "v-9.6", "h-269.5", "v20.7" ] ],
+      [ "ldr1:VCC", "bb1:bp.25", "red", [ "v0" ] ],
+      [ "ldr1:GND", "bb1:bn.25", "black", [ "v0" ] ],
+      [ "temp1:GND", "bb1:15b.f", "", [ "$bb" ] ],
+      [ "temp1:DQ", "bb1:16b.f", "", [ "$bb" ] ],
+      [ "temp1:VCC", "bb1:17b.f", "", [ "$bb" ] ]
+    ],
+    "dependencies": {}
+  }
